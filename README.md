@@ -24,6 +24,7 @@ Youtube clone project
 
 </aside>
 
+- typescript
 - react
 - react-router-dom
 - react-query
