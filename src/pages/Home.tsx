@@ -2,7 +2,7 @@ import React from "react"
 
 function Home() {
   // useLoaderData hook
-  return <div>Home</div>
+  return <div>Videos</div>
 }
 
 export default Home
