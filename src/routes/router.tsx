@@ -6,6 +6,8 @@ import ResultsPage from "../pages/Results"
 import WatchPage from "../pages/Watch"
 import NotFound from "../pages/NotFound"
 
+import { homePageLoader, resultsPageLoader, watchPageLoader } from "./loader"
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,28 +16,17 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
-        loader: async () => {
-          // API Call : Trending Videos
-          return []
-        },
+        loader: homePageLoader,
       },
       {
         path: "/results",
         element: <ResultsPage />,
-        loader: async ({ request }) => {
-          const url = new URL(request.url)
-          const searchTerm = url.searchParams.get("search_query")
-          // API Call : Search Videos
-          return searchTerm
-        },
+        loader: resultsPageLoader,
       },
       {
         path: "/watch/:id",
         element: <WatchPage />,
-        loader: async ({ params }) => {
-          // API Call : Video Details
-          return []
-        },
+        loader: watchPageLoader,
       },
     ],
   },
