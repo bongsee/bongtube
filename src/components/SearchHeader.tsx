@@ -2,7 +2,7 @@ import { useState, FormEvent, ChangeEvent, useEffect } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { BsYoutube, BsSearch } from "react-icons/bs"
 
-function Navbar() {
+function SearchHeader() {
   const [searchText, setSearchText] = useState<string>("")
   const navigate = useNavigate()
 
@@ -23,7 +23,7 @@ function Navbar() {
   }
 
   return (
-    <nav>
+    <header>
       <Link to="/">
         <BsYoutube />
         <h1>Bongtube</h1>
@@ -38,8 +38,8 @@ function Navbar() {
           <BsSearch />
         </button>
       </form>
-    </nav>
+    </header>
   )
 }
 
-export default Navbar
+export default SearchHeader
