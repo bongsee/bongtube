@@ -1,12 +1,12 @@
 import React from "react"
 import { Outlet } from "react-router-dom"
 
-import Navbar from "../components/Navbar"
+import SearchHeader from "../components/SearchHeader"
 
 function Root() {
   return (
     <>
-      <Navbar />
+      <SearchHeader />
       <Outlet />
     </>
   )

@@ -23,18 +23,22 @@ function SearchHeader() {
   }
 
   return (
-    <header>
-      <Link to="/">
-        <BsYoutube />
-        <h1>Bongtube</h1>
+    <header className="w-full flex p-4 mb-4 text-2xl border-b border-zinc-600">
+      <Link to="/" className="flex items-center">
+        <BsYoutube className="text-4xl text-brand" />
+        <h1 className="font-bold ml-2 text-3xl">Bongtube</h1>
       </Link>
-      <form onSubmit={searchFormSubmitHandler}>
+      <form
+        className="w-full flex justify-center"
+        onSubmit={searchFormSubmitHandler}
+      >
         <input
           value={searchText}
           onChange={searchInputChangeHandler}
           placeholder="동영상을 찾아보세요."
+          className="w-7/12 p-2 bg-black text-gray-50 outline-none"
         />
-        <button type="submit">
+        <button type="submit" className="bg-zinc-600 px-4">
           <BsSearch />
         </button>
       </form>
