@@ -12,12 +12,17 @@ export interface Videos {
 export interface Video {
   kind: string
   etag: string
-  id: string
+  id:
+    | string
+    | {
+        kind: string
+        videoId: string
+      }
   snippet: VideoSnippet
 }
 
 interface VideoSnippet {
-  publishedAt: Date
+  publishedAt: string
   channelId: string
   title: string
   description: string

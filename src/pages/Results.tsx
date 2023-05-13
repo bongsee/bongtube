@@ -1,11 +1,12 @@
 import React from "react"
-import { useLocation, useParams } from "react-router-dom"
+import { useLoaderData } from "react-router-dom"
+import { Video } from "../types/videos"
+import VideoList from "../components/VideoList"
 
 function Results() {
-  // useLoaderData hook
-  const location = useLocation()
-  console.dir(location)
-  return <div>{location.state?.searchText || "안뇽"}</div>
+  const searchedVideos = useLoaderData() as Video[]
+  console.log(searchedVideos)
+  return <VideoList videos={searchedVideos} />
 }
 
 export default Results
