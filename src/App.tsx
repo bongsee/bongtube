@@ -1,6 +1,6 @@
 import "./App.css"
-
 import { RouterProvider } from "react-router-dom"
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 
 import router from "./routes/router"
 import { YoutubeApiProvider } from "./contexts/youtubeApiContext"
@@ -18,6 +18,7 @@ function App() {
   console.log("[App.tsx] : has been rendered")
   return (
     <>
+      <ReactQueryDevtools initialIsOpen={false} />
       <YoutubeApiProvider>
         <RouterProvider router={router} />
       </YoutubeApiProvider>
