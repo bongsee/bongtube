@@ -22,5 +22,7 @@ export const YoutubeApiProvider = ({ children }: YoutubeApiProviderProps) => {
 }
 
 export const useYoutubeApi = () => {
-  return useContext(youtubeApiContext)
+  const context = useContext(youtubeApiContext)
+  if (!context) throw new Error("YoutubeApiProvider not found")
+  return context
 }
