@@ -3,6 +3,7 @@ import "./App.css"
 import { RouterProvider } from "react-router-dom"
 
 import router from "./routes/router"
+import { YoutubeApiProvider } from "./contexts/youtubeApiContext"
 
 console.log("[App.tsx] : has been loaded")
 
@@ -17,7 +18,9 @@ function App() {
   console.log("[App.tsx] : has been rendered")
   return (
     <>
-      <RouterProvider router={router} />
+      <YoutubeApiProvider>
+        <RouterProvider router={router} />
+      </YoutubeApiProvider>
     </>
   )
 }
