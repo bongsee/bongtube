@@ -1,11 +1,19 @@
 import React from "react"
-import { useLoaderData } from "react-router-dom"
 import VideoList from "../components/VideoList"
 import { Video } from "../types/videos"
+import { useYoutubeApi } from "../contexts/youtubeApiContext"
+import { useQuery } from "@tanstack/react-query"
+import { AxiosError } from "axios"
 
 function Home() {
-  const hotVideos = useLoaderData() as Video[]
-  return <VideoList videos={hotVideos} />
+  const { youtube } = useYoutubeApi()
+  const {
+    isLoading,
+    error,
+    data: hotVideos,
+  } = useQuery<Video[], AxiosError>(["videos", "hot"], () => youtube.search())
+
+  return <VideoList videos={hotVideos!} />
 }
 
 export default Home

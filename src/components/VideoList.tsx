@@ -9,7 +9,7 @@ interface VideoListProps {
 function VideoList({ videos }: VideoListProps) {
   return (
     <ul>
-      {videos.map((video) => (
+      {videos?.map((video) => (
         <li key={video.id as string}>
           <img
             src={video.snippet.thumbnails.medium.url}
