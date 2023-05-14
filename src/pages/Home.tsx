@@ -13,7 +13,7 @@ function Home() {
     data: hotVideos,
   } = useQuery<Video[], AxiosError>(["videos", "hot"], () => youtube.search())
 
-  return <VideoList videos={hotVideos!} />
+  return <>{hotVideos && <VideoList videos={hotVideos} />}</>
 }
 
 export default Home

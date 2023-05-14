@@ -21,7 +21,7 @@ function Results() {
   } = useQuery<Video[], AxiosError>(["videos", keyword], () =>
     youtube.search(keyword)
   )
-  return <VideoList videos={searchedVideos!} />
+  return <>{searchedVideos && <VideoList videos={searchedVideos} />}</>
 }
 
 export default Results
