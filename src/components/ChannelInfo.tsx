@@ -13,7 +13,9 @@ function ChannelInfo({ id, name }: ChannelInfoProps) {
     isLoading,
     error,
     data: channelInfo,
-  } = useQuery(["channel", id], () => youtube.fetchChannelDetails(id))
+  } = useQuery(["channel", id], () => youtube.fetchChannelDetails(id), {
+    staleTime: 1000 * 60 * 5,
+  })
   console.log(channelInfo)
   const thumbnails = channelInfo?.snippet.thumbnails
   return (

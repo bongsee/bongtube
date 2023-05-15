@@ -20,7 +20,13 @@ function Results() {
     isLoading,
     error,
     data: searchedVideos,
-  } = useQuery(["videos", keyword], () => youtube.fetchVideosByKeyword(keyword))
+  } = useQuery(
+    ["videos", keyword],
+    () => youtube.fetchVideosByKeyword(keyword),
+    {
+      refetchOnWindowFocus: false,
+    }
+  )
   return <>{searchedVideos && <VideoList videos={searchedVideos} />}</>
 }
 

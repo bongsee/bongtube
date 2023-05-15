@@ -14,7 +14,9 @@ function RelatedVideos({ id }: RelatedVideosProps) {
     isLoading,
     error,
     data: videos,
-  } = useQuery(["related_videos", id], () => youtube.fetchRelatedVideos(id))
+  } = useQuery(["related_videos", id], () => youtube.fetchRelatedVideos(id), {
+    staleTime: 1000 * 60 * 5,
+  })
 
   return (
     <ul>

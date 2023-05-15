@@ -9,7 +9,9 @@ function Home() {
     isLoading,
     error,
     data: hotVideos,
-  } = useQuery(["videos", "hot"], () => youtube.fetchHotVideos())
+  } = useQuery(["videos", "hot"], () => youtube.fetchHotVideos(), {
+    staleTime: 1000 * 60 * 1,
+  })
 
   return <>{hotVideos && <VideoList videos={hotVideos} />}</>
 }
