@@ -8,7 +8,7 @@ function Watch() {
     state: { video },
   } = useLocation()
 
-  const { title, channelId, channelTitle } = video.snippet
+  const { title, channelId, channelTitle, description } = video.snippet
   console.log(channelId)
 
   return (
@@ -22,6 +22,7 @@ function Watch() {
         />
         <h2>{title}</h2>
         <ChannelInfo id={channelId} name={channelTitle} />
+        <pre>{description}</pre>
       </article>
       <section>
         <RelatedVideos id={video.id} />
