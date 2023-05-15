@@ -1,9 +1,7 @@
 import React from "react"
 import VideoList from "../components/VideoList"
-import { Video } from "../types/videos"
 import { useYoutubeApi } from "../contexts/youtubeApiContext"
 import { useQuery } from "@tanstack/react-query"
-import { AxiosError } from "axios"
 
 function Home() {
   const { youtube } = useYoutubeApi()
@@ -11,7 +9,7 @@ function Home() {
     isLoading,
     error,
     data: hotVideos,
-  } = useQuery<Video[], AxiosError>(["videos", "hot"], () => youtube.search())
+  } = useQuery(["videos", "hot"], () => youtube.fetchHotVideos())
 
   return <>{hotVideos && <VideoList videos={hotVideos} />}</>
 }
