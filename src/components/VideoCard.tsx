@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react"
+import React from "react"
 
 import { getRelativeTime } from "../utils/getRelativeTime"
 import { Video } from "../types/videos"
@@ -15,7 +15,7 @@ function VideoCard({ video }: VideoCardProps) {
 
   const onClickVideoCard = (e: React.MouseEvent<HTMLLIElement>) => {
     const videoId = e.currentTarget.id
-    navigate(`/watch/${videoId}`)
+    navigate(`/watch/${videoId}`, { state: { video } })
   }
 
   return (

@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios"
 import { Videos } from "../types/videos"
 import { AxiosInstance } from "axios"
+import { Channels } from "../types/channel"
 
 export default class Youtube {
   private httpClient: AxiosInstance
@@ -84,7 +85,7 @@ export default class Youtube {
   }
   async fetchChannelDetails(channelId: string) {
     return this.httpClient
-      .get("/channels", {
+      .get<Channels>("/channels", {
         params: {
           part: "snippet",
           id: channelId,
