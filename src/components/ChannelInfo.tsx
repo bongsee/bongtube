@@ -17,9 +17,15 @@ function ChannelInfo({ id, name }: ChannelInfoProps) {
   console.log(channelInfo)
   const thumbnails = channelInfo?.snippet.thumbnails
   return (
-    <div>
-      {thumbnails && <img src={thumbnails.default.url} alt={name} />}
-      <p>{name}</p>
+    <div className="flex items-center mt-4 mb-8">
+      {thumbnails && (
+        <img
+          className="w-10 h-10 rounded-full"
+          src={thumbnails.default.url}
+          alt={name}
+        />
+      )}
+      <p className="text-lg font-medium ml-2">{name}</p>
     </div>
   )
 }

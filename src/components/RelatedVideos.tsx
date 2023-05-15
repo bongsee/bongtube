@@ -19,7 +19,7 @@ function RelatedVideos({ id }: RelatedVideosProps) {
   return (
     <ul>
       {videos?.map((video) => (
-        <VideoCard key={video.id as string} video={video} />
+        <VideoCard key={video.id as string} video={video} type="list" />
       ))}
     </ul>
   )
