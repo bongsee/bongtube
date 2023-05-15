@@ -12,12 +12,7 @@ function Home() {
   } = useQuery(["videos", "hot"], () => youtube.fetchHotVideos(), {
     staleTime: 1000 * 60 * 1,
   })
-
-  return <>{hotVideos && <VideoList videos={hotVideos} />}</>
+  return <>{<VideoList videos={hotVideos!} isLoading={isLoading} />}</>
 }
 
 export default Home
-
-// videoId : hotVideos.items[index].id
-// snippet : hotVideos.items[index].snippet
-// -> channelId, channelTitle, title, thumbnails.medium.url/width/height, publishedAt

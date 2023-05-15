@@ -27,7 +27,7 @@ function Results() {
       refetchOnWindowFocus: false,
     }
   )
-  return <>{searchedVideos && <VideoList videos={searchedVideos} />}</>
+  return <>{<VideoList videos={searchedVideos!} isLoading={isLoading} />}</>
 }
 
 export default Results
