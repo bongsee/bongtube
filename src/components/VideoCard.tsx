@@ -1,7 +1,8 @@
-import React from "react"
+import React, { MouseEventHandler } from "react"
 
 import { getRelativeTime } from "../utils/getRelativeTime"
 import { Video } from "../types/videos"
+import { useNavigate } from "react-router-dom"
 
 interface VideoCardProps {
   video: Video
@@ -9,8 +10,16 @@ interface VideoCardProps {
 
 function VideoCard({ video }: VideoCardProps) {
   const { thumbnails, title, channelTitle, publishedAt } = video.snippet
+
+  const navigate = useNavigate()
+
+  const onClickVideoCard = (e: React.MouseEvent<HTMLLIElement>) => {
+    const videoId = e.currentTarget.id
+    navigate(`/watch/${videoId}`)
+  }
+
   return (
-    <li>
+    <li id={video.id as string} onClick={onClickVideoCard}>
       <img
         className="w-full"
         src={thumbnails.medium.url}
