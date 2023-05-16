@@ -1,9 +1,7 @@
 import React from "react"
 import VideoList from "../components/VideoList"
-import { Video } from "../types/videos"
 import { useYoutubeApi } from "../contexts/youtubeApiContext"
 import { useQuery } from "@tanstack/react-query"
-import { AxiosError } from "axios"
 
 function Home() {
   const { youtube } = useYoutubeApi()
@@ -11,13 +9,10 @@ function Home() {
     isLoading,
     error,
     data: hotVideos,
-  } = useQuery<Video[], AxiosError>(["videos", "hot"], () => youtube.search())
-
-  return <>{hotVideos && <VideoList videos={hotVideos} />}</>
+  } = useQuery(["videos", "hot"], () => youtube.fetchHotVideos(), {
+    staleTime: 1000 * 60 * 1,
+  })
+  return <>{<VideoList videos={hotVideos!} isLoading={isLoading} />}</>
 }
 
 export default Home
-
-// videoId : hotVideos.items[index].id
-// snippet : hotVideos.items[index].snippet
-// -> channelId, channelTitle, title, thumbnails.medium.url/width/height, publishedAt

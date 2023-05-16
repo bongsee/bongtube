@@ -16,7 +16,8 @@ function SearchHeader() {
 
   const searchFormSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    navigate(`/results?search_query=${searchText}`, { state: { searchText } })
+    if (searchText.trim() === "") return
+    navigate(`/results?search_query=${searchText}`)
   }
   const searchInputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value)
