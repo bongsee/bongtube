@@ -1,4 +1,3 @@
-import React from "react"
 import { Video } from "../types/videos"
 import VideoCard from "./VideoCard"
 import VideoCardSkeleton from "./Skeleton/VideoCardSkeleton"

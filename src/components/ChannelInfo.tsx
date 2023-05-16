@@ -1,4 +1,3 @@
-import React from "react"
 import { useQuery } from "@tanstack/react-query"
 import { useYoutubeApi } from "../contexts/youtubeApiContext"
 
@@ -10,8 +9,8 @@ type ChannelInfoProps = {
 function ChannelInfo({ id, name }: ChannelInfoProps) {
   const { youtube } = useYoutubeApi()
   const {
-    isLoading,
-    error,
+    // isLoading,
+    // error,
     data: channelInfo,
   } = useQuery(["channel", id], () => youtube.fetchChannelDetails(id), {
     staleTime: 1000 * 60 * 5,

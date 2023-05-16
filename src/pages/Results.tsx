@@ -1,4 +1,4 @@
-import React from "react"
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useLocation } from "react-router-dom"
 import VideoList from "../components/VideoList"
 import { useYoutubeApi } from "../contexts/youtubeApiContext"
@@ -18,7 +18,7 @@ function Results() {
 
   const {
     isLoading,
-    error,
+    // error,
     data: searchedVideos,
   } = useQuery(
     ["videos", keyword],

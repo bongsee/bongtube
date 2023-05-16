@@ -1,4 +1,3 @@
-import React from "react"
 import { useQuery } from "@tanstack/react-query"
 import { useYoutubeApi } from "../contexts/youtubeApiContext"
 import VideoCard from "./VideoCard"
@@ -13,7 +12,7 @@ function RelatedVideos({ id }: RelatedVideosProps) {
 
   const {
     isLoading,
-    error,
+    // error,
     data: videos,
   } = useQuery(["related_videos", id], () => youtube.fetchRelatedVideos(id), {
     staleTime: 1000 * 60 * 5,

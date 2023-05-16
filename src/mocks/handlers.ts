@@ -3,7 +3,7 @@ import hotVideos from "./data/hot.json"
 import searchedVideos from "./data/search.json"
 
 export const handlers = [
-  rest.get("https://www.googleapis.com/youtube/v3/videos", (req, res, ctx) => {
+  rest.get("https://www.googleapis.com/youtube/v3/videos", (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json(hotVideos))
   }),
   rest.get("https://www.googleapis.com/youtube/v3/search", (req, res, ctx) => {
